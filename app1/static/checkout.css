@@ -1,0 +1,295 @@
+/* === CONTAINER === */
+body{
+    padding: 0px 0px;
+}
+.purchase-all{
+  padding: 50px 50px;
+}
+.checkout-container, main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    font-family: "Inter", sans-serif;
+}
+
+/* === TITLE === */
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* === ORDER SUMMARY === */
+.order-items {
+    border-top: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 100px 1fr 120px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item img {
+    width: 80px;
+    border-radius: 8px;
+}
+
+.order-item .details p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.order-item .details p strong {
+    font-size: 15px;
+    color: #222;
+}
+
+.order-item .price {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+}
+
+/* === TOTAL === */
+.total-price-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.total-price-box h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* === FORM SECTION === */
+form {
+    margin-top: 30px;
+    background: #F6F7F9;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* WRAPPER TO REDUCE WIDTH */
+.form-field-group {
+    max-width: 520px;
+    margin: 0 auto 20px auto;
+}
+
+/* LABELS */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* INPUT FIELDS */
+form textarea,
+form select,
+form input[type="tel"] {
+    width: 100%;
+    max-width: 520px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+form textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* SUBMIT BUTTON */
+form input[type="submit"] {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    box-shadow: 0 5px 15px rgba(255,0,0,0.2);
+    transition: 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background: #d62828;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+
+    .order-item {
+        grid-template-columns: 80px 1fr;
+        row-gap: 10px;
+    }
+
+    .order-item .price {
+        text-align: left;
+    }
+
+    .form-field-group {
+        max-width: 100%;
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* ======================= checkout place order */
+/* From Uiverse.io by fthisilak */ 
+.pay-btn {
+  position: relative;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.icon-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  color: #22c55e;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.default-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover animations */
+.pay-btn:hover .icon {
+  animation: none;
+}
+
+.pay-btn:hover .wallet-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pay-btn:hover .card-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 0s;
+}
+
+.pay-btn:hover .payment-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 0.5s;
+}
+
+.pay-btn:hover .dollar-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 1s;
+}
+
+.pay-btn:hover .check-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 1.5s;
+}
+
+/* Active state - show only checkmark */
+.pay-btn:active .icon {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.pay-btn:active .check-icon {
+  animation: checkmarkAppear 0.6s ease forwards;
+  visibility: visible;
+}
+
+.btn-text {
+  font-weight: 600;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+@keyframes iconRotate {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.5);
+  }
+  5% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  15% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.5);
+  }
+}
+
+@keyframes checkmarkAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}

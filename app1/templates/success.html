@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Success{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'success.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="success-container">
+    <i class="fas fa-check-circle success-icon"></i>
+    <div class="success-message">Payment Successful!</div>
+    <div class="success-submessage">
+      Thank you for your order.<br>
+      Your order will be delivered within <strong>3-5 days</strong>.
+    </div>
+    <div class="success-buttons">
+      <a href="{% url 'home' %}">Back to Home</a>
+      <a href="{% url 'product' %}">Continue Shopping</a>
+    </div>
+  </div>
+
+{% endblock %}

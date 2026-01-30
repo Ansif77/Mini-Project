@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact.css' %}">
+<link rel="stylesheet" href="{% static 'nav.css' %}?v={{time}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar">
+  <div class="hamburger">☰</div>
+  
+  <a href="#" class="logo">Rezoni</a>
+  
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'product' %}">Collections</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'ordered' %}">Ordered</a></li>
+    <li><a href="{% url 'register' %}">Register</a></li>
+    <li><a href="{% url 'login' %}">Login</a></li>
+  </ul>
+
+  <div class="icons">
+    <a href="{% url 'viewcart' %}">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="contact-header">
+    <h2>Contact Urban Covers</h2>
+    <p>We’re an online-only brand. Reach us anytime through the channels below.</p>
+</div>
+
+<div class="contact-wrapper">
+
+    <div class="contact-card">
+        <i class="fa-solid fa-phone"></i>
+        <h4>Phone / WhatsApp</h4>
+        <p>+91 98765 43210</p>
+        <span>Mon - Sat, 10 AM - 6 PM</span>
+    </div>
+
+    <div class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <h4>Email</h4>
+        <p>support@urbancovers.com</p>
+        <span>Replies within 24 hours</span>
+    </div>
+
+    <div class="contact-card">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h4>Shipping & Returns</h4>
+        <p>We ship all over India.<br>No in-person pickup or store.</p>
+    </div>
+
+</div>
+
+<div class="contact-footer-info">
+    <h4>Business Information</h4>
+    <p>Brand Name: Urban Covers</p>
+    <p>Store Type: Online-only Ecommerce</p>
+    <p>GST No: 22AAAAA0000A1Z5</p>
+</div>
+
+
+{% endblock %}

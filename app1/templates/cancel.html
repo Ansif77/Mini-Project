@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Success{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="{% static 'cancel.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cancel-container">
+    <i class="fas fa-times-circle cancel-icon"></i>
+    <div class="cancel-message">Payment Cancelled</div>
+    <div class="cancel-submessage">
+        Your payment could not be completed or was cancelled.<br>
+        You can try again or continue shopping.
+    </div>
+    <div class="cancel-buttons">
+        <a href="{% url 'purchase' %}">Try Again</a>
+        <a href="{% url 'product' %}">Continue Shopping</a>
+    </div>
+</div>
+
+{% endblock %}

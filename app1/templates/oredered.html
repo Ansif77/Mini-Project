@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Products{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'ordered.css' %}?v={{time}}">
+<link rel="stylesheet" href="{% static 'nav.css' %}?v={{time}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar">
+  <div class="hamburger">☰</div>
+  
+  <a href="#" class="logo">Rezoni</a>
+  
+  <ul class="nav-menu">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'product' %}">Collections</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'ordered' %}">Ordered</a></li>
+    <li><a href="{% url 'register' %}">Register</a></li>
+    <li><a href="{% url 'login' %}">Login</a></li>
+  </ul>
+
+  <div class="icons">
+    <a href="{% url 'viewcart' %}">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+  </div>
+</nav>
+
+<!-- Place this script at the end of your body -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+});
+</script>
+
+
+<h2 class="order-title">Your Orders</h2>
+
+<div class="order-items">
+    {% for i in ordered %}
+    <div class="order-card">
+        <div class="order-img">
+            {% if i.product.cover %}
+            <img src="{{i.product.cover.url}}" alt="">
+            {% endif %}
+        </div>
+
+        <div class="order-info">
+            <h4>{{ i.product.name }}</h4>
+            <p>Price: ₹{{ i.product.price }}</p>
+            <p>Qty: {{ i.quantity }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

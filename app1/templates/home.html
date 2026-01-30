@@ -1,0 +1,212 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home.css' %}?v={{time}}">
+<link rel="stylesheet" href="{% static 'nav.css' %}?v={{time}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+                
+
+{% endblock %}
+
+{% block content %}
+
+<nav class="navbar">
+  <div class="hamburger">☰</div>
+  
+  <a href="#" class="logo">Rezoni</a>
+  
+  <ul class="nav-menu">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'product' %}">Collections</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'ordered' %}">Ordered</a></li>
+    <li><a href="{% url 'register' %}">Register</a></li>
+    <li><a href="{% url 'login' %}">Login</a></li>
+  </ul>
+
+  <div class="icons">
+    <a href="{% url 'viewcart' %}">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+  </div>
+</nav>
+
+<!-- Place this script at the end of your body -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+});
+</script>
+
+
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://cdn.shopify.com/s/files/1/0621/7829/6040/files/DSC00062.jpg?v=1729097458" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.shopify.com/s/files/1/0621/7829/6040/files/3600x1600.jpg?v=1721460267" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.shopify.com/s/files/1/0621/7829/6040/files/DSC01921.jpg?v=1733748876" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<br><br><br><br>
+
+<div class="image-grid">
+  <div class="slides-track">
+    <div class="image-item">
+      <img src="https://www.rezoni.com/cdn/shop/files/6_c0ebdd0a-d5a3-45ab-bf59-14744104fae1_600x.jpg?v=1729101657" alt="Image 1">
+    </div>
+    <div class="image-item">
+      <img src="https://www.rezoni.com/cdn/shop/files/2_3562e232-df32-48ce-8243-78648d732db3_600x.jpg?v=1729101564" alt="Image 2">
+    </div>
+    <div class="image-item">
+      <img src="https://www.rezoni.com/cdn/shop/files/3_924841ab-9d00-4b67-81bf-87fd8187a026_600x.jpg?v=1729101587" alt="Image 3">
+    </div>
+    <div class="image-item">
+      <img src="https://www.rezoni.com/cdn/shop/files/5_de8d5357-6fd4-4a0e-b2b5-9b426d12d637_600x.jpg?v=1729101635" alt="Image 4">
+    </div>
+    <div class="image-item">
+      <img src="https://www.rezoni.com/cdn/shop/files/4_203254f2-0742-4e2e-bebc-5c949bfb131e_600x.jpg?v=1729101604" alt="Image 5">
+    </div>
+    <div class="image-item">
+      <img src="https://www.rezoni.com/cdn/shop/files/3_924841ab-9d00-4b67-81bf-87fd8187a026_600x.jpg?v=1729101587" alt="Image 5">
+    </div>
+  </div>
+  <button class="nav-btn prev">←</button>
+  <button class="nav-btn next">→</button>
+</div>
+
+<script>
+const track = document.querySelector('.slides-track');
+const items = document.querySelectorAll('.image-item');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+let index = 0;
+
+// width of one image + gap (20px)
+const itemWidth = 351 + 20;
+
+// calculate max slides based on container width
+const containerWidth = document.querySelector('.image-grid').offsetWidth;
+const visibleCount = Math.floor(containerWidth / itemWidth);
+const maxIndex = items.length - visibleCount;
+
+nextBtn.onclick = () => {
+  if (index < maxIndex) {
+    index++;
+    track.style.transform = `translateX(-${index * itemWidth}px)`;
+  }
+};
+
+prevBtn.onclick = () => {
+  if (index > 0) {
+    index--;
+    track.style.transform = `translateX(-${index * itemWidth}px)`;
+  }
+};
+</script>
+
+
+
+
+
+
+<div class="service-enquiry">
+  <div class="enquiry-items">
+    <i class="fa-solid fa-box"></i>
+    <span>FREE SHIPPING</span>
+    <p>Free nationwide shipping.</p>
+  </div>
+
+  <div class="enquiry-items">
+    <i class="fa-solid fa-phone"></i>
+    <span>CUSTOMER SERVICE</span>
+    <p>We are available from Monday to Saturday<br>to answer your questions.</p>
+  </div>
+
+  <div class="enquiry-items">
+    <i class="fa-solid fa-lock"></i>
+    <span>SECURE PAYMENT</span>
+    <p>Your payment information is processed<br>securely.</p>
+  </div>
+
+  <div class="enquiry-items">
+    <i class="fa-regular fa-envelope"></i>
+    <span>CONTACT US</span>
+    <p>Need to contact us? Just send us an email at<br>hello@demo.com</p>
+  </div>
+</div>
+
+<div class="footer-image">
+  <img src="https://www.rezoni.com/cdn/shop/files/22dg_3000x.jpg?v=1729077651" alt="">
+</div>
+
+<footer class="footer">
+  <div class="footer-items">
+    <div class="footer-logo">
+      <img src="https://www.rezoni.com/cdn/shop/files/final_Horizontal_logo_copy-01_600x.png?v=1647520936" alt="">
+    </div>
+    <div class="footer-information">
+      <ul data-title="INFORMATION">
+        <li>Our Story</li>
+        <li>Shipping Policy</li>
+        <li>Returns/Refunds/Exchanges</li>
+        <li>Cancellation Policy</li>
+        <li>Terms & Conditions</li>
+        <li>Privacy Policy</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+    <div class="footer-shop">
+      <ul data-title="SHOP">
+        <li>iPhone Cases</li>
+        <li>Samsung Cases</li>
+        <li>AirPods Case</li>
+        <li>Phone Grips</li>
+      </ul>
+    </div>
+   <div class="footer-social">
+  <span>FOLLOW US</span>
+  <div class="footer-social-icons">
+    <a href="https://www.facebook.com/" target="_blank" style="text-decoration: none;">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+  <a href="https://www.instagram.com/" style="text-decoration: none;" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a href="https://www.pinterest.com/" style="text-decoration: none;" target="_blank">
+    <i class="fa-brands fa-pinterest-p"></i>
+  </a>
+  </div>
+</div>
+
+ 
+
+
+</footer>
+{% endblock %}
