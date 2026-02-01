@@ -1,48 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'nav.html' %}
 {% load static %}
 {% block title %}Cart{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'cart.css'%}?v={{time}}">
-<link rel="stylesheet" href="{% static 'nav.css'%}?v={{time}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 {% endblock %}
 
 {% block content %}
-<nav class="navbar">
-  <div class="hamburger">☰</div>
-  
-  <a href="#" class="logo">Rezoni</a>
-  
-  <ul class="nav-menu">
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'product' %}">Collections</a></li>
-    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-    <li><a href="{% url 'ordered' %}">Ordered</a></li>
-    <li><a href="{% url 'register' %}">Register</a></li>
-    <li><a href="{% url 'login' %}">Login</a></li>
-  </ul>
-
-  <div class="icons">
-    <a href="{% url 'viewcart' %}">
-      <i class="fas fa-shopping-cart"></i>
-    </a>
-  </div>
-</nav>
-
-<!-- Place this script at the end of your body -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-});
-</script>
-
-
 
     <div class="cart-container">
         <div class="cart-header">
@@ -118,57 +83,3 @@ document.addEventListener('DOMContentLoaded', function () {
         {% endif %}
     </div>
 {% endblock %}
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-</head>
-<body>
-
-<h1>Shopping Cart ({{ case|length }} items)</h1>
-
-{% if case %}
-{% for i in case %}
-<div style="border: 2px solid #ccc; margin: 15px 0; padding: 15px;">
-    <div style="display: flex; gap: 15px; align-items: center;">
-        <div>
-            {% if i.product.cover %}
-                <img src="{{ i.product.cover.url }}" alt="{{ i.product.name }}" width="70" height="70">
-            {% else %}
-                No Image
-            {% endif %}
-        </div>
-        
-        <div style="flex: 1;">
-            <h3>{{ i.product.name }}</h3>
-            <p>User: {{ i.user.username|default:i.user }}</p>
-            <p>Qty: {{ i.quantity }}</p>
-        </div>
-        
-        <div>
-            <a href="{% url 'deletecart' i.id %}">Delete</a><br><br>
-        </div>
-    </div>
-</div>
-{% endfor %}
-
-<div style="border: 2px solid #28a745; padding: 20px; margin: 20px 0;">
-    <h3>Total: ${{ total_price|floatformat:2 }}</h3>
-    <a href="{% url 'purchase' %}">Purchase All</a>
-</div>
-
-{% else %}
-<div style="text-align: center; padding: 50px;">
-    <h2>Cart Empty</h2>
-    <p>Add products to shop</p>
-    <a href="{% url 'product' %}">Continue Shopping</a>
-</div>
-{% endif %}
-
-</body>
-</html> -->

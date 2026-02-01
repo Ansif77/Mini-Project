@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'nav.css' %}">
+    {% block extra_css %}
+
+{% endblock %}
+
+</head>
+<body>
+<nav class="navbar">
+  <div class="hamburger">☰</div>
+  
+  <img src="https://i.postimg.cc/JDjYVKxR/Urban-(1).png" alt="" style="padding: 10px;width: 125px;">
+  
+  <ul class="nav-menu">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'product' %}">Collections</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'ordered' %}">Ordered</a></li>
+    <li><a href="{% url 'register' %}">Register</a></li>
+    <li><a href="{% url 'login' %}">Login</a></li>
+  </ul>
+
+  <div class="icons">
+    <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket logout-icon"></i>
+</a>
+    <a href="{% url 'viewcart' %}">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+});
+</script>
+
+    {% block content %}
+
+{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+

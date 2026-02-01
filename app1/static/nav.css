@@ -8,7 +8,7 @@
   padding: 10px 40px;
   background-color: #000;
   color: #fff;
-  position: relative;
+  position:relative;
 }
 
 /* Logo */
@@ -23,7 +23,7 @@
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
   margin: 0;
   padding: 0;
 }
@@ -32,6 +32,7 @@
   text-decoration: none;
   color: #fff;
   font-weight: 500;
+  font-size: 16px;
   transition: color 0.3s;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }

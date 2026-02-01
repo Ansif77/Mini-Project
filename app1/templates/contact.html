@@ -1,34 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'nav.html' %}
 {% load static %}
 {% block title %}Contact{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'contact.css' %}">
-<link rel="stylesheet" href="{% static 'nav.css' %}?v={{time}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
-<nav class="navbar">
-  <div class="hamburger">☰</div>
-  
-  <a href="#" class="logo">Rezoni</a>
-  
-  <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'product' %}">Collections</a></li>
-    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-    <li><a href="{% url 'ordered' %}">Ordered</a></li>
-    <li><a href="{% url 'register' %}">Register</a></li>
-    <li><a href="{% url 'login' %}">Login</a></li>
-  </ul>
 
-  <div class="icons">
-    <a href="{% url 'viewcart' %}">
-      <i class="fas fa-shopping-cart"></i>
-    </a>
-  </div>
-</nav>
 
 <div class="contact-header">
     <h2>Contact Urban Covers</h2>

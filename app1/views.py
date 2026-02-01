@@ -37,7 +37,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')    
+    return redirect('home')    
 
 @login_required
 def add_cart(request,case_id):
